@@ -12,7 +12,7 @@
 </template>
 
 <script>
-const axios = require('axios')
+const axios = require("axios");
 export default {
     name: "Login",
     data() {
@@ -24,22 +24,22 @@ export default {
     },
     methods: {
         checkLogin() {
-            axios.post('http://127.0.0.1:3333/api/auth/login', {
-                email: this.email,
-                password: this.password
-            }).then(response => {
-                console.log(this.email, this.password, response)
-                if (response.data.data.token) {
-                    localStorage.removeItem('userToken')
-                    localStorage.setItem('userToken', response.data.token);
-                    // correct the route to dashboard
-                    this.$router.push('/dashboard')
-                } else {
-                    this.alertMessage = "Username or password doesnt match to any user";
-                }
-            })
+            axios
+                .post("http://127.0.0.1:3333/api/auth/login", {
+                    email: this.email,
+                    password: this.password,
+                })
+                .then((response) => {
+                    if (response.data.data.token) {
+                        localStorage.removeItem("userToken");
+                        localStorage.setItem("userToken", response.data.data.token);
+                        this.$router.push("/dashboard");
+                    } else {
+                        this.alertMessage = "Username or password doesnt match to any user";
+                    }
+                });
         },
-    }
+    },
 };
 </script>
 

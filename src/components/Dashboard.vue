@@ -3,7 +3,8 @@
     <h1>Dashboard</h1>
     <div v-if="loginCheck">
         <h3>You are logged in</h3>
-        <router-link to="/logout">Logout</router-link>
+        <router-link to="/logout">Logout</router-link> |
+        <router-link to="/sites">Sites</router-link>
     </div>
     <div v-else>
         <p>You need to login first.</p>
