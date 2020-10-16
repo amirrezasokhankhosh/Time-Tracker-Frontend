@@ -36,6 +36,26 @@ const routes = [
     path: '/new_site',
     name: 'New_site',
     component: () => import('../components/Site/New_site.vue')
+  },
+  {
+    path: '/times',
+    name: 'Times',
+    component: () => import('../components/Time/Times.vue')
+  },
+  {
+    path: '/new_time',
+    name: 'New_time',
+    component: () => import('../components/Time/New_time.vue')
+  },
+  {
+    path: '/restrict_group',
+    name: 'Restrict_group',
+    component: () => import('../components/Restrict/Restrict_group.vue')
+  },
+  {
+    path: '/restrict_user',
+    name: 'Restrict_user',
+    component: () => import('../components/Restrict/Restrict_user.vue')
   }
 ]
 
