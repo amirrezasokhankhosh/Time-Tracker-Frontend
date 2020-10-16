@@ -65,7 +65,7 @@ export default {
                         },
                     })
                     .then(() => {
-                        this.$router.push('/sites')
+                        this.$router.push('/restricts')
 
                     });
             } else {

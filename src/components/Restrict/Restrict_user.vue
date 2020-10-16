@@ -44,7 +44,6 @@ export default {
                 })
                 .then((response) => {
                     this.users = response.data.data.data;
-                    console.log(this.users)
                 });
         } else {
             alert("You need to login first!");
@@ -65,7 +64,7 @@ export default {
                         },
                     })
                     .then(() => {
-                        this.$router.push('/sites')
+                        this.$router.push('/restricts')
 
                     });
             } else {

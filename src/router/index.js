@@ -56,6 +56,11 @@ const routes = [
     path: '/restrict_user',
     name: 'Restrict_user',
     component: () => import('../components/Restrict/Restrict_user.vue')
+  },
+  {
+    path: '/restricts',
+    name: 'Restricts',
+    component: () => import('../components/Restrict/Restricts.vue')
   }
 ]
 

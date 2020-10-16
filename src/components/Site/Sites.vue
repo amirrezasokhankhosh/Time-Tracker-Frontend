@@ -11,9 +11,7 @@
     <div v-else>
         <p>No sites added yet!</p>
     </div>
-    <router-link to="/new_site">Add a new site</router-link> |
-    <router-link to="/restrict_group">add a restrict for a group</router-link> |
-    <router-link to="/restrict_user">add a restrict for a user</router-link>
+    <router-link to="/new_site">Add a new site</router-link>
 </div>
 </template>
 

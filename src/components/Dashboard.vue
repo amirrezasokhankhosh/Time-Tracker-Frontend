@@ -5,7 +5,8 @@
         <h3>You are logged in</h3>
         <router-link to="/logout">Logout</router-link> |
         <router-link to="/sites">Sites</router-link> |
-        <router-link to="/times">Times</router-link>
+        <router-link to="/times">Times</router-link> |
+        <router-link to="/restricts">Restricts</router-link>
     </div>
     <div v-else>
         <p>You need to login first.</p>
