@@ -10,6 +10,7 @@
                         <div v-for="site in sites" v-bind:key="site.id">
                             <div v-if="site_group.site_id == site.id && site_group.group_id == group.id">
                                 <li>Site : {{site.url}} - Group : {{group.name}}</li>
+                                <router-link v-bind:to="'/delete_group_restrict/' + site_group.id">delete this strict</router-link>
                             </div>
                         </div>
                     </div>
@@ -30,6 +31,7 @@
                         <div v-for="site in sites" v-bind:key="site.id">
                             <div v-if="site_user.site_id == site.id && site_user.user_id == user.id">
                                 <li>Site : {{site.url}} - Username : {{user.username}}</li>
+                                <router-link v-bind:to="'/delete_user_restrict/' + site_user.id">delete this strict</router-link>
                             </div>
                         </div>
                     </div>

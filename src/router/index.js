@@ -58,9 +58,29 @@ const routes = [
     component: () => import('../components/Restrict/Restrict_user.vue')
   },
   {
+    path: '/delete_user_restrict/:id',
+    name: 'Delete_user_restrict',
+    component: () => import('../components/Restrict/Delete_user_restrict.vue')
+  },
+  {
+    path: '/delete_group_restrict/:id',
+    name: 'Delete_group_restrict',
+    component: () => import('../components/Restrict/Delete_group_restrict.vue')
+  },
+  {
     path: '/restricts',
     name: 'Restricts',
     component: () => import('../components/Restrict/Restricts.vue')
+  },
+  {
+    path: '/unproductives',
+    name: 'Unproductives',
+    component: () => import('../components/Unproductive/Unproductives.vue')
+  },
+  {
+    path: '/new_unproductive',
+    name: 'New_unproductive',
+    component: () => import('../components/Unproductive/New_unproductive.vue')
   }
 ]
 

@@ -1,0 +1,32 @@
+<template>
+<div class="delete_user_restrict"></div>
+</template>
+
+<script>
+const axios = require('axios')
+export default {
+    name: 'Delete_user_restrict',
+    mounted: function () {
+        var userToken = localStorage.getItem("userToken");
+        if (userToken) {
+            axios
+                .delete(`http://127.0.0.1:3333/api/restrict_user/${this.$route.params.id}`, {
+                    headers: {
+                        Authorization: `Bearer ${userToken}`
+                    },
+                })
+                .then(() => {
+                    this.$router.push('/restricts')
+
+                });
+        } else {
+            alert("You need to login first!");
+            this.$router.push("http://localhost:8080/login");
+        }
+    }
+}
+</script>
+
+<style>
+
+</style>

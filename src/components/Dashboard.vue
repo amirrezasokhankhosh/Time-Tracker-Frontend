@@ -6,7 +6,8 @@
         <router-link to="/logout">Logout</router-link> |
         <router-link to="/sites">Sites</router-link> |
         <router-link to="/times">Times</router-link> |
-        <router-link to="/restricts">Restricts</router-link>
+        <router-link to="/restricts">Restricts</router-link> |
+        <router-link to="/unproductives">Unproductives</router-link>
     </div>
     <div v-else>
         <p>You need to login first.</p>
