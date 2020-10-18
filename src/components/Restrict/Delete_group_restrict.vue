@@ -11,7 +11,7 @@ export default {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .delete(`http://127.0.0.1:3333/api/restrict_group/${this.$route.params.id}`, {
+                .delete(`http://185.206.94.49:3333/api/restrict_group/${this.$route.params.id}`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -22,7 +22,7 @@ export default {
                 });
         } else {
             alert("You need to login first!");
-            this.$router.push("http://localhost:8080/login");
+            this.$router.push("/login");
         }
     }
 }

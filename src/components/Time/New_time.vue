@@ -28,7 +28,7 @@ export default {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .get("http://127.0.0.1:3333/api/task", {
+                .get("http://185.206.94.49:3333/api/task", {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -39,7 +39,7 @@ export default {
                 });
         } else {
             alert("You need to login first!");
-            this.$router.push("http://localhost:8080/login");
+            this.$router.push("/login");
         }
     },
     methods: {
@@ -47,7 +47,7 @@ export default {
             var userToken = localStorage.getItem("userToken");
             if (userToken) {
                 axios
-                    .post("http://127.0.0.1:3333/api/time", {
+                    .post("http://185.206.94.49:3333/api/time", {
                         start_at: this.start_at,
                         end_at: this.end_at,
                         task_id: this.task_id
@@ -62,7 +62,7 @@ export default {
                     });
             } else {
                 alert("You need to login first!");
-                this.$router.push("http://localhost:8080/login");
+                this.$router.push("/login");
             }
         }
     }

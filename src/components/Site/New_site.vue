@@ -26,7 +26,7 @@ export default {
             var userToken = localStorage.getItem("userToken");
             if (userToken) {
                 axios
-                    .post("http://127.0.0.1:3333/api/site", {
+                    .post("http://185.206.94.49:3333/api/site", {
                         url: this.url,
                         description: this.description,
                         restrict_for_all: this.restrict_for_all
@@ -40,7 +40,7 @@ export default {
                     });
             } else {
                 alert("You need to login first!");
-                this.$router.push("http://localhost:8080/login");
+                this.$router.push("/login");
             }
         },
     },
