@@ -39,7 +39,7 @@ export default {
             if (this.password == this.confirm_password) {
                 console.log(this.phone)
                 axios
-                    .post("http://185.206.94.49:3333/api/auth/signup", {
+                    .post("http://185.206.94.49:4000/api/auth/signup", {
                         name: this.name,
                         username: this.username,
                         email: this.email,

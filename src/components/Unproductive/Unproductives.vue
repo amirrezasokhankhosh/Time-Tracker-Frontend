@@ -36,7 +36,7 @@ export default {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .get("http://185.206.94.49:3333/api/user", {
+                .get("http://185.206.94.49:4000/api/user", {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -46,7 +46,7 @@ export default {
 
                 });
             axios
-                .get("http://185.206.94.49:3333/api/site", {
+                .get("http://185.206.94.49:4000/api/site", {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -55,7 +55,7 @@ export default {
                     this.sites = response.data;
                 });
             axios
-                .get("http://185.206.94.49:3333/api/unproductive", {
+                .get("http://185.206.94.49:4000/api/unproductive", {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
