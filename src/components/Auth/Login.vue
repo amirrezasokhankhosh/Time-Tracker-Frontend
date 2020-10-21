@@ -25,7 +25,7 @@ export default {
     methods: {
         checkLogin() {
             axios
-                .post("http://185.206.94.49:4000/api/auth/login", {
+                .post("http://localhost:3333/api/auth/login", {
                     email: this.email,
                     password: this.password,
                 })

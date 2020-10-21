@@ -11,7 +11,7 @@ export default {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .delete(`http://185.206.94.49:4000/api/restrict_group/${this.$route.params.id}`, {
+                .delete(`http://localhost:3333/api/restrict_group/${this.$route.params.id}`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },

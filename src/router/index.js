@@ -81,6 +81,17 @@ const routes = [
     path: '/new_unproductive',
     name: 'New_unproductive',
     component: () => import('../components/Unproductive/New_unproductive.vue')
+  },
+  {
+    path: '/productivities',
+    name: 'Productivities',
+    component: () => import('../components/Productivity/Productivities.vue')
+  },
+  {
+    path: '/user_productivity/:user_id',
+    name : 'User_productivity',
+    component: () => import('../components/Productivity/User_productivity.vue')
+
   }
 ]
 

@@ -28,7 +28,7 @@ export default {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .get("http://185.206.94.49:4000/api/time", {
+                .get("http://localhost:3333/api/time", {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },

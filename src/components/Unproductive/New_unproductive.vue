@@ -1,8 +1,9 @@
 <template>
 <div class="new_unproductive">
     <h1>New unproductive</h1>
-    <input type="datetime" v-model="start_at" placeholder="Start at">
-    <input type="datetime" v-model="end_at" placeholder="End at">
+    <input type="date" v-model="day">
+    <input type="time" v-model="start_at" placeholder="Start at">
+    <input type="time" v-model="end_at" placeholder="End at">
     <select v-model="user_id">
         <option v-for="user in users" v-bind:key="user.id" v-bind:value="user.id">{{user.username}}</option>
     </select>
@@ -26,13 +27,14 @@ export default {
             sites: [],
             start_at: null,
             end_at: null,
+            day: null,
         };
     },
     mounted: function () {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .get("http://185.206.94.49:4000/api/user", {
+                .get("http://localhost:3333/api/user", {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -42,7 +44,7 @@ export default {
 
                 });
             axios
-                .get("http://185.206.94.49:4000/api/site", {
+                .get("http://localhost:3333/api/site", {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -60,7 +62,8 @@ export default {
             var userToken = localStorage.getItem("userToken");
             if (userToken) {
                 axios
-                    .post("http://185.206.94.49:4000/api/unproductive", {
+                    .post("http://localhost:3333/api/unproductive", {
+                        day: this.day,
                         site_id: this.site_id,
                         user_id: this.user_id,
                         start_at: this.start_at,

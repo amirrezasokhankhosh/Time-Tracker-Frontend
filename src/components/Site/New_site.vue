@@ -26,7 +26,7 @@ export default {
             var userToken = localStorage.getItem("userToken");
             if (userToken) {
                 axios
-                    .post("http://185.206.94.49:4000/api/site", {
+                    .post("http://localhost:3333/api/site", {
                         url: this.url,
                         description: this.description,
                         restrict_for_all: this.restrict_for_all

@@ -63,7 +63,7 @@ export default {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .get("http://185.206.94.49:4000/api/site", {
+                .get("http://localhost:3333/api/site", {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -72,7 +72,7 @@ export default {
                     this.sites = response.data;
                 });
             axios
-                .get("http://185.206.94.49:4000/api/group", {
+                .get("http://localhost:3333/api/group", {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -82,7 +82,7 @@ export default {
 
                 });
             axios
-                .get("http://185.206.94.49:4000/api/user", {
+                .get("http://localhost:3333/api/user", {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -92,7 +92,7 @@ export default {
 
                 });
             axios
-                .get("http://185.206.94.49:4000/api/restrict_user", {
+                .get("http://localhost:3333/api/restrict_user", {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -101,7 +101,7 @@ export default {
                     this.sites_users = response.data;
                 });
             axios
-                .get("http://185.206.94.49:4000/api/restrict_group", {
+                .get("http://localhost:3333/api/restrict_group", {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },

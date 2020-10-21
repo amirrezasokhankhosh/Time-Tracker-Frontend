@@ -1,8 +1,10 @@
 <template>
 <div class="new_time">
     <h1>New time</h1>
-    <input type="datetime" v-model="start_at" placeholder="Start at">
-    <input type="datetime" v-model="end_at" placeholder="End at">
+    <input type="date" v-model="day">
+    <input type="time" v-model="start_at">
+    <input type="time" v-model="end_at">
+    <p>{{day}} {{time}}</p>
     <select v-model="task_id">
         <option v-for="task in tasks" v-bind:key="task.id" v-bind:value="task.id">{{task.title}}</option>
     </select>
@@ -21,14 +23,16 @@ export default {
             start_at: null,
             end_at: null,
             task_id: null,
-            tasks: []
+            tasks: [],
+            day: null,
+            time: null
         };
     },
     mounted: function () {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .get("http://185.206.94.49:4000/api/task", {
+                .get("http://localhost:3333/api/task", {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -47,7 +51,8 @@ export default {
             var userToken = localStorage.getItem("userToken");
             if (userToken) {
                 axios
-                    .post("http://185.206.94.49:4000/api/time", {
+                    .post("http://localhost:3333/api/time", {
+                        day: this.day,
                         start_at: this.start_at,
                         end_at: this.end_at,
                         task_id: this.task_id
