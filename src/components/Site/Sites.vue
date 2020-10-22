@@ -4,7 +4,9 @@
     <div v-if="sites[0]">
         <ul>
             <div v-for="site in sites" v-bind:key="site.id">
-                <li>{{site.url}}</li>
+                <li>
+                    <router-link v-bind:to="'/site/' + site.id">{{site.url}}</router-link>
+                </li>
             </div>
         </ul>
     </div>
@@ -17,6 +19,7 @@
 
 <script>
 const axios = require('axios');
+const url = require('../env');
 export default {
     name: "Sites",
     data() {
@@ -28,7 +31,7 @@ export default {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .get("http://localhost:3333/api/site", {
+                .get(`${url}/api/site`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },

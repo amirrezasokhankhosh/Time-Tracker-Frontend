@@ -33,6 +33,11 @@ const routes = [
     component: () => import('../components/Site/Sites.vue')
   },
   {
+    path: '/site/:site_id',
+    name: 'Site',
+    component: () => import('../components/Site/Site.vue')
+  },
+  {
     path: '/new_site',
     name: 'New_site',
     component: () => import('../components/Site/New_site.vue')

@@ -8,7 +8,7 @@
             <ul>
                 <div class="times" v-for="time in user.times" v-bind:key="time.id">
                     <li>
-                        Day of time : {{getDate(time)}}
+                        Day of time : {{getDate(time.day)}}
                         <br>
                         Start time : {{time.start_at}} |
                         End time : {{time.end_at}}
@@ -45,6 +45,7 @@
 
 <script>
 const axios = require('axios');
+const url = require('../env')
 export default {
     name: 'Productivities',
     data() {
@@ -57,7 +58,7 @@ export default {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .get("http://localhost:3333/api/productivity", {
+                .get(`${url}/api/productivity`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -67,7 +68,7 @@ export default {
                     console.log(this.users)
                 });
             axios
-                .get("http://localhost:3333/api/site", {
+                .get(`${url}/api/site`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -82,7 +83,7 @@ export default {
     },
     methods: {
         getDate(time) {
-            var date = time.day.split('T')
+            var date = time.split('T')
             return date[0]
         },
         timeDiffrence(first, second) {

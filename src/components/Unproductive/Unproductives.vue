@@ -7,7 +7,7 @@
                 <div v-for="site in sites" v-bind:key="site.id">
                     <div v-for="user in users" v-bind:key="user.id">
                         <div v-if="unproductive.user_id == user.id && unproductive.site_id == site.id">
-                            <li>User : {{user.username}} | Site : {{site.url}} | Time : {{unproductive.start_at}} until {{unproductive.end_at}}</li>
+                            <li>User : {{user.username}} | Site : {{site.url}} | Day : {{getDate(unproductive.day)}} |Time : {{unproductive.start_at}} until {{unproductive.end_at}}</li>
                         </div>
                     </div>
                 </div>
@@ -23,6 +23,7 @@
 
 <script>
 const axios = require('axios');
+const url = require('../env');
 export default {
     name: 'Unproductives',
     data() {
@@ -36,7 +37,7 @@ export default {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .get("http://localhost:3333/api/user", {
+                .get(`${url}/api/user`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -46,7 +47,7 @@ export default {
 
                 });
             axios
-                .get("http://localhost:3333/api/site", {
+                .get(`${url}/api/site`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -55,7 +56,7 @@ export default {
                     this.sites = response.data;
                 });
             axios
-                .get("http://localhost:3333/api/unproductive", {
+                .get(`${url}/api/unproductive`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -67,6 +68,12 @@ export default {
             alert("You need to login first!");
             this.$router.push("/login");
         }
+    },
+    methods: {
+        getDate(time) {
+            var date = time.split('T')
+            return date[0]
+        },
     }
 }
 </script>

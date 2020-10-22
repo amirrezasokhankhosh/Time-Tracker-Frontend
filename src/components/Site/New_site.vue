@@ -12,6 +12,7 @@
 
 <script>
 const axios = require('axios');
+const url = require('../env');
 export default {
     name: "New_site",
     data() {
@@ -26,7 +27,7 @@ export default {
             var userToken = localStorage.getItem("userToken");
             if (userToken) {
                 axios
-                    .post("http://localhost:3333/api/site", {
+                    .post(`${url}/api/site`, {
                         url: this.url,
                         description: this.description,
                         restrict_for_all: this.restrict_for_all

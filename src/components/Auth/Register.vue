@@ -19,6 +19,7 @@
 
 <script>
 const axios = require("axios");
+const url = require('../env')
 export default {
     name: "Register",
     data() {
@@ -39,7 +40,7 @@ export default {
             if (this.password == this.confirm_password) {
                 console.log(this.phone)
                 axios
-                    .post("http://localhost:3333/api/auth/signup", {
+                    .post(`${url}/api/auth/signup`, {
                         name: this.name,
                         username: this.username,
                         email: this.email,

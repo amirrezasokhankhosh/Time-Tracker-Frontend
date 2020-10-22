@@ -48,6 +48,7 @@
 
 <script>
 const axios = require('axios');
+const url = require('../env');
 export default {
     name: 'Restrics',
     data() {
@@ -63,7 +64,7 @@ export default {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .get("http://localhost:3333/api/site", {
+                .get(`${url}/api/site`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -72,7 +73,7 @@ export default {
                     this.sites = response.data;
                 });
             axios
-                .get("http://localhost:3333/api/group", {
+                .get(`${url}/api/group`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -82,7 +83,7 @@ export default {
 
                 });
             axios
-                .get("http://localhost:3333/api/user", {
+                .get(`${url}/api/user`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -92,7 +93,7 @@ export default {
 
                 });
             axios
-                .get("http://localhost:3333/api/restrict_user", {
+                .get(`${url}/api/restrict_user`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -101,7 +102,7 @@ export default {
                     this.sites_users = response.data;
                 });
             axios
-                .get("http://localhost:3333/api/restrict_group", {
+                .get(`${url}/api/restrict_group`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },

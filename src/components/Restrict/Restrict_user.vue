@@ -14,6 +14,7 @@
 
 <script>
 const axios = require('axios');
+const url = require('../env');
 export default {
     name: 'Restrict_user',
     data() {
@@ -28,18 +29,26 @@ export default {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .get("http://localhost:3333/api/site", {
+                .get(`${url}/api/site`, {
                     headers: {
-                        Authorization: `Bearer ${userToken}`
+                        Authorization: `
+                        Bearer $ {
+                            userToken
+                        }
+                        `
                     },
                 })
                 .then((response) => {
                     this.sites = response.data;
                 });
             axios
-                .get("http://localhost:3333/api/user", {
+                .get(`${url}/api/user`, {
                     headers: {
-                        Authorization: `Bearer ${userToken}`
+                        Authorization: `
+                        Bearer $ {
+                            userToken
+                        }
+                        `
                     },
                 })
                 .then((response) => {
@@ -55,16 +64,20 @@ export default {
             var userToken = localStorage.getItem("userToken");
             if (userToken) {
                 axios
-                    .post("http://localhost:3333/api/restrict_user", {
+                    .post(`${url}/api/restrict_user`, {
                         site_id: this.site_id,
                         user_id: this.user_id
                     }, {
                         headers: {
-                            Authorization: `Bearer ${userToken}`
+                            Authorization: `
+                        Bearer $ {
+                            userToken
+                        }
+                        `
                         },
                     })
                     .then(() => {
-                        this.$router.push('/restricts')
+                        this.$router.go(-1)
 
                     });
             } else {

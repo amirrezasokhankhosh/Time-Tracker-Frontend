@@ -5,13 +5,14 @@
 
 <script>
 const axios = require('axios');
+const url = require('../env')
 export default {
     name: 'Delete_group_restrict',
     mounted: function () {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .delete(`http://localhost:3333/api/restrict_group/${this.$route.params.id}`, {
+                .delete(`${url}/api/restrict_group/${this.$route.params.id}`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },

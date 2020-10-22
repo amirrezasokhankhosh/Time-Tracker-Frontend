@@ -17,6 +17,7 @@
 
 <script>
 const axios = require('axios');
+const url = require('../env');
 export default {
     name: "Times",
     data() {
@@ -28,7 +29,7 @@ export default {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .get("http://localhost:3333/api/time", {
+                .get(`${url}/api/time`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },

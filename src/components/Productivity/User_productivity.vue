@@ -55,6 +55,7 @@
 
 <script>
 const axios = require("axios");
+const url = require('../env')
 export default {
     name: "User_productivity",
     data() {
@@ -70,7 +71,7 @@ export default {
         if (userToken) {
             axios
                 .get(
-                    `http://localhost:3333/api/productivity/${this.$route.params.user_id}`, {
+                    `${url}/api/productivity/${this.$route.params.user_id}`, {
                         headers: {
                             Authorization: `Bearer ${userToken}`,
                         },
@@ -86,7 +87,7 @@ export default {
                     }
                 });
             axios
-                .get("http://localhost:3333/api/site", {
+                .get(`${url}/api/site`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`,
                     },

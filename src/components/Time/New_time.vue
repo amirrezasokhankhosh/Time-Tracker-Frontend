@@ -16,6 +16,7 @@
 
 <script>
 const axios = require('axios');
+const url = require('../env');
 export default {
     name: 'New_time',
     data() {
@@ -32,7 +33,7 @@ export default {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .get("http://localhost:3333/api/task", {
+                .get(`${url}/api/task`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -51,7 +52,7 @@ export default {
             var userToken = localStorage.getItem("userToken");
             if (userToken) {
                 axios
-                    .post("http://localhost:3333/api/time", {
+                    .post(`${url}/api/time`, {
                         day: this.day,
                         start_at: this.start_at,
                         end_at: this.end_at,

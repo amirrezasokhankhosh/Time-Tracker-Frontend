@@ -13,6 +13,7 @@
 
 <script>
 const axios = require("axios");
+const url = require('../env')
 export default {
     name: "Login",
     data() {
@@ -25,7 +26,7 @@ export default {
     methods: {
         checkLogin() {
             axios
-                .post("http://localhost:3333/api/auth/login", {
+                .post(`${url}/api/auth/login`, {
                     email: this.email,
                     password: this.password,
                 })

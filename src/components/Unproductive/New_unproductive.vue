@@ -17,6 +17,7 @@
 
 <script>
 const axios = require('axios');
+const url = require('../env');
 export default {
     name: 'New_unproductive',
     data() {
@@ -34,7 +35,7 @@ export default {
         var userToken = localStorage.getItem("userToken");
         if (userToken) {
             axios
-                .get("http://localhost:3333/api/user", {
+                .get(`${url}/api/user`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -44,7 +45,7 @@ export default {
 
                 });
             axios
-                .get("http://localhost:3333/api/site", {
+                .get(`${url}/api/site`, {
                     headers: {
                         Authorization: `Bearer ${userToken}`
                     },
@@ -62,7 +63,7 @@ export default {
             var userToken = localStorage.getItem("userToken");
             if (userToken) {
                 axios
-                    .post("http://localhost:3333/api/unproductive", {
+                    .post(`${url}/api/unproductive`, {
                         day: this.day,
                         site_id: this.site_id,
                         user_id: this.user_id,
