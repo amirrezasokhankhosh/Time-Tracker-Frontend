@@ -62,11 +62,7 @@ export default {
                         user_id: this.user_id
                     }, {
                         headers: {
-                            Authorization: `
-                        Bearer $ {
-                            userToken
-                        }
-                        `
+                            Authorization: `Bearer ${userToken}`
                         },
                     })
                     .then(() => {
