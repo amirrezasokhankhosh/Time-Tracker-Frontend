@@ -31,24 +31,17 @@ export default {
             axios
                 .get(`${url}/api/site`, {
                     headers: {
-                        Authorization: `
-                        Bearer $ {
-                            userToken
-                        }
-                        `
+                        Authorization: `Bearer ${userToken}`
                     },
                 })
                 .then((response) => {
                     this.sites = response.data;
+                    console.log(this.sites)
                 });
             axios
                 .get(`${url}/api/user`, {
                     headers: {
-                        Authorization: `
-                        Bearer $ {
-                            userToken
-                        }
-                        `
+                        Authorization: `Bearer ${userToken}`
                     },
                 })
                 .then((response) => {
